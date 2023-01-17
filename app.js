@@ -22,17 +22,21 @@ app.post('/', (req, res) => {
     //cluster.Worker.kill(); 
 });
 
-if (cluster.isMaster) {
-    console.log({numCpu});
-    for (let i = 0; i < numCpu; i++) {
-        cluster.fork();    
-    }
-    // cluster.on('exit', (worker, code, signal)=>{
-    //     console.log(`worker ${worker.process.pid} died`);
-    //     cluster.fork() // crete new one after exit 1
-    // })
-}else{
-    app.listen(port, () => { console.log(`server ${process.pid} and app listening on port!`, port) });
-}
+app.get('/cpu', (req, res) => {
+    res.send({code: 200, numOfCpu: numCpu, isMaster: cluster.isMaster})
+});
 
-// app.listen(port, () => { console.log(`server ${process.pid} and app listening on port!`, port) });
+// if (cluster.isMaster) {
+//     console.log({numCpu});
+//     for (let i = 0; i < numCpu; i++) {
+//         cluster.fork();    
+//     }
+//     // cluster.on('exit', (worker, code, signal)=>{
+//     //     console.log(`worker ${worker.process.pid} died`);
+//     //     cluster.fork() // crete new one after exit 1
+//     // })
+// }else{
+//     app.listen(port, () => { console.log(`server ${process.pid} and app listening on port!`, port) });
+// }
+
+ app.listen(port, () => { console.log(`server ${process.pid} and app listening on port!`, port) });
