@@ -5,7 +5,7 @@ const cluster = require('cluster');
 const os  = require('os');
 
 const app = express();
-const port = 3001;
+const port = 3000;
 const numCpu = os.cpus().length;
 
 app.use(cors());
