@@ -6,8 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "prod": "pm2 start ./app.js --name node-cluster-app-2",
-    "stop": "pm2 stop node-cluster-app-2"
+    "start:prod": "pm2 start ./app.js  --log ./logs/err.log --name node-cluster-app-2",
+    "stop": "pm2 stop node-cluster-app-2",
+    "start:all": "pm2 start ecosystem.config.js --only node-cluster-app-2 --env development",
+    "stop:all": "pm2 stop ecosystem.config.js",
+    "delete": "pm2 delete ecosystem.config.js --only node-cluster-app-2",
+    "reload": "pm2 reload ecosystem.config.js --only node-cluster-app-2",
+    "flush": "pm2 flush",
+    "deploy": "pm2 deploy ecosystem.config.js production setup"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +22,7 @@
     "cluster": "^0.7.7",
     "cors": "^2.8.5",
     "express": "^4.18.2",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "read-last-lines": "^1.8.0"
   }
 }

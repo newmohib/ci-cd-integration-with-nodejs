@@ -3,6 +3,8 @@ const cors = require("cors");
 const bodyParser = require('body-parser');
 const cluster = require('cluster');
 const os  = require('os');
+const readLastLines = require('read-last-lines');
+
 
 const app = express();
 const port = 3001;
@@ -45,6 +47,20 @@ app.get('/authe/signin', (req, res) => {
 app.get('/cpu', (req, res) => {
     res.send({code: 200, numOfCpu: numCpu, isMaster: cluster.isMaster})
 });
+
+app.get('/err-logs', (req, res) => {
+    const startTime = new Date();
+    readLastLines.read('./logs/err.log', 10)
+    .then((lines) => {
+        res.send({Logs: lines, Time: new Date() - startTime }).json()
+    }).catch(err=>{
+        res.send(err)
+    })
+ 
+ 
+});
+
+
 
 // if (cluster.isMaster) {
 //     console.log({numCpu});
