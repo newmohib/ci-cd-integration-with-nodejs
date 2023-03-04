@@ -15,7 +15,7 @@ module.exports = {
     }
   ],
   // Deployment Configuration
-  
+
   // deploy : {
   //   production : {
   //      "key"  : "./mohib_aws.pem",
@@ -45,7 +45,9 @@ module.exports = {
       // GIT remote
       repo: "https://github.com/newmohib/nodejs-cluster-simple-example.git",
       // path in the server
-      path: "/home/ubuntu/apps/node-simple-cluster",
+
+      //path: "/home/ubuntu/apps/node-simple-cluster",
+      
       // Pre-setup command or path to a script on your local machine
       //'pre-setup': "apt-get install git ; ls -la",
       // Post-setup commands or path to a script on the host machine
