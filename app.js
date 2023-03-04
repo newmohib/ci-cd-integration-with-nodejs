@@ -32,6 +32,16 @@ app.get('/', (req, res) => {
     //cluster.Worker.kill(); 
 });
 
+app.get('/authe/signin', (req, res) => {
+    console.log(req.body, new Date());
+    for (let i = 0; i < 1e8; i++) { 
+
+    }
+    console.log(new Date());
+    res.send({code: 200, pid: process.pid})
+    //cluster.Worker.kill(); 
+});
+
 app.get('/cpu', (req, res) => {
     res.send({code: 200, numOfCpu: numCpu, isMaster: cluster.isMaster})
 });
