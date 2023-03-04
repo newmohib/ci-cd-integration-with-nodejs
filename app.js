@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
 
     }
     console.log(new Date());
-    res.send({code: 200, pid: process.pid})
+    res.send({code: 200, pid: process.pid, name: "Test User"})
     //cluster.Worker.kill(); 
 });
 
