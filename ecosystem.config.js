@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: "node-cluster-app-2",
+      name: "node-sample",
       script: "./app.js",
       env: {
         NODE_ENV: "development",
