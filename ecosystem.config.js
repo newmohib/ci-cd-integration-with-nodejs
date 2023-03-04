@@ -15,18 +15,17 @@ module.exports = {
     }
   ],
   // Deployment Configuration
-  
-  // deploy : {
-  //   production : {
-  //      "key"  : "./mohib_aws.pem",
-  //      "user" : "ubuntu",
-  //      "host" : ["3.0.149.77"],
-  //      "ref"  : "origin/dev",
-  //      "repo" : "https://github.com/newmohib/nodejs-cluster-simple-example.git",
-  //      "path" : "/home/ubuntu/apps/node-simple-cluster",
-  //      "post-deploy" : "npm install"
-  //   }
-  // },
+  deploy : {
+    production : {
+       "key"  : "./mohib_aws.pem",
+       "user" : "ubuntu",
+       "host" : ["3.0.149.77"],
+       "ref"  : "origin/dev",
+       "repo" : "https://github.com/newmohib/nodejs-cluster-simple-example.git",
+       "path" : "/home/ubuntu/apps/node-simple-cluster",
+       "post-deploy" : "npm install"
+    }
+  },
 
   deploy: {
     // "production" is the environment name
@@ -47,14 +46,14 @@ module.exports = {
       // path in the server
       path: "/home/ubuntu/apps/node-simple-cluster",
       // Pre-setup command or path to a script on your local machine
-      //'pre-setup': "apt-get install git ; ls -la",
+      'pre-setup': "apt-get install git ; ls -la",
       // Post-setup commands or path to a script on the host machine
       // eg: placing configurations in the shared dir etc
-     // 'post-setup': "ls -la",
+      'post-setup': "ls -la",
       // pre-deploy action
-     // 'pre-deploy-local': "echo 'This is a local executed command'",
+      'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-     // 'post-deploy': "npm install",
+      'post-deploy': "npm install",
     },
   }
 }
