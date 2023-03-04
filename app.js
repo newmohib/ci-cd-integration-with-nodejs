@@ -22,7 +22,7 @@ app.post('/', (req, res) => {
     //cluster.Worker.kill(); 
 });
 
-app.get('/authe/signin', (req, res) => {
+app.get('/', (req, res) => {
     console.log(req.body, new Date());
     for (let i = 0; i < 1e8; i++) { 
 
