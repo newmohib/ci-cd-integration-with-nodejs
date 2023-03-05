@@ -1,5 +1,5 @@
 const env = getEnvName();
-const devApi  = "node-api"
+const namespace  = "node-api"
 var hosts = getHosts();
 
 function getHosts () {
@@ -35,6 +35,7 @@ module.exports = {
   apps: [
     {
       name: "node-api-sample",
+      namespace,
       script: "app.js",
       // env: {
       //   NODE_ENV: "development",
@@ -75,8 +76,8 @@ module.exports = {
       // pre-deploy action
       //'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      //'post-deploy': `npm i --prod && pm2 start`,
-      'post-deploy': `npm i --prod && pm2 reload ${devApi} --update-env`,
+      // 'post-deploy': `npm i --prod && pm2 start`,
+      'post-deploy': `npm i --prod && pm2 reload ${namespace} --update-env`,
     },
   }
 }
