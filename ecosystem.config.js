@@ -1,7 +1,39 @@
+const env = getEnvName();
+const devApi  = "node-api"
+var hosts = getHosts();
+
+function getHosts () {
+  console.log("env:", env);
+
+  // valideting environment paramiters
+  if (!env) {
+    throw new Error("Environment params not found!")
+  };
+
+  //diclaring all host
+  const _hosts = {
+    dev01: "3.0.149.77",
+    dev02: ["3.0.149.77"]
+  };
+
+  const host = _hosts[env];
+  if (!host) {
+    throw new Error("Invalid host name!");
+  };
+
+  return host;
+}
+
+function getEnvName() {
+  let index = process.argv.indexOf('--env');
+  if (index < 0) return;
+  return process.argv[index + 1];
+}
+
 module.exports = {
   apps: [
     {
-      name: "node-sample",
+      name: "node-api-sample",
       script: "app.js",
       // env: {
       //   NODE_ENV: "development",
@@ -18,13 +50,13 @@ module.exports = {
 
   deploy: {
     // "production" is the environment name
-    production: {
+    devApi: {
       // SSH key path, default to $HOME/.ssh
       //key: "./mohib_aws.pem",
       // SSH user
       user: "ubuntu",
       // SSH host
-      host: ["3.0.149.77"],
+      host: hosts,
       // SSH options with no command-line flag, see 'man ssh'
       // can be either a single string or an array of strings
       ssh_options: "StrictHostKeyChecking=no",
@@ -42,9 +74,10 @@ module.exports = {
       // pre-deploy action
       //'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      'post-deploy': "npm i --prod && pm2 start",
+      'post-deploy': `npm i --prod && pm2 start ${devApi}`,
+      // 'post-deploy': `npm i --prod && pm2 reload ${devApi} --update-env`,
     },
   }
 }
 
-// pm2 reload  --update-env
+// pm2 reload --update-env
