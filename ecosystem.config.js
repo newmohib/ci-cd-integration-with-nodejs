@@ -83,3 +83,27 @@ module.exports = {
 }
 
 // pm2 reload --update-env
+
+
+// initial setup command if locla is any cange but nod commit then
+// pm2 deploy devApi --force setup --env dev01
+
+// initial setup command if do not any cnange locla
+// pm2 deploy devApi --force setup --env dev01
+// pm2 deploy production setup
+
+// for run remote inatance and send params as key env
+//  pm2 deploy devApi --env dev01
+
+// get every commit uniq key for tag versins
+// git rev-parse --short HEAD
+
+
+// ssh key gen
+// ssh-keygen -t ed25519 -C "newmohib@gmail.com"
+
+// exicution comand
+// pm2 deploy production --force exec "pwd"
+
+
+

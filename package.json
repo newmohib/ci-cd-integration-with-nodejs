@@ -13,7 +13,7 @@
     "delete": "pm2 delete ecosystem.config.js --only node-cluster-app-2",
     "reload": "pm2 reload ecosystem.config.js --only node-cluster-app-2",
     "flush": "pm2 flush",
-    "prod:deploy": "pm2 deploy ecosystem.config.js production setup",
+    "prod:deploy": "pm2 deploy devApi --force --env dev01",
     "prod:update": "pm2 deploy update ecosystem.config.js production setup",
     "prod:exec": "pm2 deploy production exec pm2 reload all"
   },
@@ -28,3 +28,4 @@
     "read-last-lines": "^1.8.0"
   }
 }
+
