@@ -7,7 +7,8 @@ function getHosts () {
 
   // valideting environment paramiters
   if (!env) {
-    throw new Error("Environment params not found!")
+    // throw new Error("Environment params not found!")
+    return;
   };
 
   //diclaring all host
@@ -74,8 +75,8 @@ module.exports = {
       // pre-deploy action
       //'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      'post-deploy': `npm i --prod && pm2 start ${devApi}`,
-      // 'post-deploy': `npm i --prod && pm2 reload ${devApi} --update-env`,
+      //'post-deploy': `npm i --prod && pm2 start`,
+      'post-deploy': `npm i --prod && pm2 reload ${devApi} --update-env`,
     },
   }
 }
