@@ -42,7 +42,9 @@ module.exports = {
       // pre-deploy action
       //'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      'post-deploy': "npm i --prod && pm2 start --only node-cluster-app",
+      'post-deploy': "npm i --prod && pm2 start",
     },
   }
 }
+
+// pm2 reload  --update-env
