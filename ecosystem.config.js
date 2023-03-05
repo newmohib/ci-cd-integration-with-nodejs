@@ -10,8 +10,8 @@ module.exports = {
         NODE_ENV: "production",
       },
       log_date_format: "YYYY-MM-DD HH:mm Z",
-      error_file: "./logs/err.log",
-      out_file: "./logs/output.log",
+      error_file: "../shared/logs/err.log",
+      out_file: "../shared/logs/output.log",
     }
   ],
   // Deployment Configuration
@@ -42,7 +42,7 @@ module.exports = {
       // pre-deploy action
       //'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      'post-deploy': "npm install",
+      'post-deploy': "npm i --prod && pm2 start --only node-cluster-app",
     },
   }
 }
