@@ -2,10 +2,10 @@ module.exports = {
   apps: [
     {
       name: "node-sample",
-      script: "./app.js",
-      env: {
-        NODE_ENV: "development",
-      },
+      script: "app.js",
+      // env: {
+      //   NODE_ENV: "development",
+      // },
       env_production: {
         NODE_ENV: "production",
       },
@@ -20,7 +20,7 @@ module.exports = {
     // "production" is the environment name
     production: {
       // SSH key path, default to $HOME/.ssh
-      key: "./mohib_aws.pem",
+      //key: "./mohib_aws.pem",
       // SSH user
       user: "ubuntu",
       // SSH host
@@ -31,18 +31,18 @@ module.exports = {
       // GIT remote/branch
       ref: "origin/dev",
       // GIT remote
-      repo: "https://github.com/newmohib/nodejs-cluster-simple-example.git",
+      repo: "git@github.com:newmohib/nodejs-cluster-simple-example.git",
       // path in the server
       path: "/home/ubuntu/apps/node-sample",
       // Pre-setup command or path to a script on your local machine
       //'pre-setup': "apt-get install git ; ls -la",
       // Post-setup commands or path to a script on the host machine
       // eg: placing configurations in the shared dir etc
-      'post-setup': "ls -la",
+      //'post-setup': "ls -la",
       // pre-deploy action
-      'pre-deploy-local': "echo 'This is a local executed command'",
+      //'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      //'post-deploy': "npm install",
+      'post-deploy': "npm install",
     },
   }
 }
