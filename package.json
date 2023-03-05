@@ -13,8 +13,9 @@
     "delete": "pm2 delete ecosystem.config.js --only node-cluster-app-2",
     "reload": "pm2 reload ecosystem.config.js --only node-cluster-app-2",
     "flush": "pm2 flush",
-    "deploy": "pm2 deploy ecosystem.config.js production setup",
-    "update": "pm2 deploy update ecosystem.config.js production setup" 
+    "prod:deploy": "pm2 deploy ecosystem.config.js production setup",
+    "prod:update": "pm2 deploy update ecosystem.config.js production setup",
+    "prod:exec": "pm2 deploy production exec pm2 reload all"
   },
   "author": "",
   "license": "ISC",
