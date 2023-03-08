@@ -7,7 +7,7 @@ on:
   push:
     branches: [ "github-action-ci-cd" ]
   # pull_request:
-  #   branches: [ "master" ]
+  #   branches: [ "github-action-ci-cd" ]
 
 jobs:
   build:
