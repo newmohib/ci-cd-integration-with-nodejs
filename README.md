@@ -31,4 +31,32 @@
 
 ## Docs
     1: https://www.youtube.com/watch?v=3jXtTSnA8zw
-    2: 
+
+
+## Deploy with pm2 tools
+
+    initial setup command if do not any cnange locla
+       1: pm2 deploy devApi --force setup --env dev01
+       2: pm2 deploy production setup
+
+    initial setup command if locla is any cange but nod commit then
+        3: pm2 deploy devApi --force setup --env dev01
+
+    for run remote inatance and send params as key env
+        4: pm2 deploy devApi --env dev01
+
+    reload application
+        5: pm2 reload --update-env
+
+    exicution comand
+            pm2 deploy production --force exec "pwd"
+
+
+    get every commit uniq key for tag versins
+            git rev-parse --short HEAD
+
+
+    ssh key gen
+            ssh-keygen -t ed25519 -C "newmohib@gmail.com"
+
+
