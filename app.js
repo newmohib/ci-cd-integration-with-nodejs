@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
     }
     console.log(new Date());
     res.send({code: 200, pid: process.pid})
-    
+    //cluster.Worker.kill(); 
 });
 
 app.get('/', (req, res) => {
