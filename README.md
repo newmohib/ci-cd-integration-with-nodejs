@@ -11,5 +11,8 @@
     7: complete all command for 
         a: Download
         b: Configure
+
+        c not ./run.sh
+        
     8: sudo ./svc.sh install
     9: sudo ./svc.sh start
